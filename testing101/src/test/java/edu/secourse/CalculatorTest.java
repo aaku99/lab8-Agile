@@ -20,19 +20,17 @@ class CalculatorTest {
         assertAll(
                 () -> assertEquals(6, Calculator.multiply(2, 3)),
                 () -> assertEquals(0, Calculator.multiply(5, 0)),
-                () -> assertEquals(-8, Calculator.multiply(2, -4))
+                () -> assertEquals(-8, Calculator.multiply(2, -4)),
+                () -> assertEquals(-0, Calculator.multiply(-3, 0))
         );
-    }
-    @Test
-    @DisplayName("multiply(): -3.0 times zero")
-    void multiplyNegativeByZero() {
-        assertEquals(0, Calculator.multiply(-3.0, 0));
     }
 
     @Test
-    @DisplayName("multiply(): -3.0 times zero with delta")
-    void multiplyNegativeByZeroWithDelta() {
-        assertEquals(0, Calculator.multiply(-3.0, 0), 0.0001);
+    void sqrt(){
+        assertAll(
+                () -> assertEquals(2, Calculator.sqrt(4)),
+                () -> assertEquals(0, Calculator.sqrt(0))
+        );
     }
 }
 
