@@ -2,6 +2,8 @@ package edu.secourse;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import static java.lang.Float.NaN;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CalculatorTest {
@@ -21,7 +23,7 @@ class CalculatorTest {
                 () -> assertEquals(6, Calculator.multiply(2, 3)),
                 () -> assertEquals(0, Calculator.multiply(5, 0)),
                 () -> assertEquals(-8, Calculator.multiply(2, -4)),
-                () -> assertEquals(-0, Calculator.multiply(-3, 0))
+                () -> assertEquals(-0.0, Calculator.multiply(-3, 0))
         );
     }
 
@@ -29,7 +31,8 @@ class CalculatorTest {
     void sqrt(){
         assertAll(
                 () -> assertEquals(2, Calculator.sqrt(4)),
-                () -> assertEquals(0, Calculator.sqrt(0))
+                () -> assertEquals(0, Calculator.sqrt(0)),
+                () -> assertEquals(NaN, Calculator.sqrt(-1))
         );
     }
 }
